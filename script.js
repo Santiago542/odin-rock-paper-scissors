@@ -6,14 +6,42 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(choice) {
-    if(choice === "rock" || choice === "paper" || choice === "scissors") {
-        return choice;
+    if(choice.toLowerCase() === "rock" || choice.toLowerCase() === "paper" || choice.toLowerCase() === "scissors") {
+        return choice.toLowerCase();
     } else if(parseInt(choice) === 0) {
         return "rock";
     } else if(parseInt(choice) === 1) {
         return "paper";
     } else if(parseInt(choice) === 2) {
         return "scissors";
+    }
+
+    return null;
+}
+
+function playRound(humanChoice, computerChoice) {
+    if(humanChoice === computerChoice) {
+        return "It's a tie!";
+    }
+
+    if(humanChoice === "rock") {
+        if(computerChoice === "paper") {
+            return "Computer wins: paper beats rock!";
+        } else if(computerChoice === "scissors") {
+            return "You win: rock beats scissors!";
+        }
+    } else if(humanChoice === "paper") {
+        if(computerChoice === "rock") {
+            return "You win: paper beats rock!";
+        } else if(computerChoice === "scissors") {
+            return "Computer wins: scissors beats paper!";
+        }
+    } else if(humanChoice === "scissors") {
+        if(computerChoice === "paper") {
+            return "You win: scissors beats rock!";
+        } else if(computerChoice === "rock") {
+            return "Computer wins: rock beats scissors!";
+        }
     }
 
     return null;
