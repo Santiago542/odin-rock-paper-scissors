@@ -55,7 +55,7 @@ function playRound(playerChoice, computerChoice) {
 
 let playerScore = 0;
 let computerScore = 0;
-let winner = 0;
+let winnerAnnouncement = false;
 
 const container = document.querySelector(".container");
 
@@ -82,4 +82,23 @@ container.addEventListener("click", (event) => {
 
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
+
+    const winnerDisplay = document.createElement("div");
+    winnerDisplay.style.cssText = "font-size: 32px";
+
+    const body = document.querySelector("body");
+
+    if(playerScore === 5 && !winnerAnnouncement) {
+        winnerDisplay.textContent = "Congratulations, you won!";
+        body.appendChild(winnerDisplay);
+        winnerAnnouncement = true;
+    } else if(computerScore === 5 && !winnerAnnouncement) {
+        winnerDisplay.textContent = "Sorry, computer won!";
+        body.appendChild(winnerDisplay);
+        winnerAnnouncement = true;
+    } else if(playerScore === 5 && computerScore === 5 && !winnerAnnouncement) {
+        winnerDisplay.textContent = "It's a tie, refresh to try again!";
+        body.appendChild(winnerDisplay);
+        winnerAnnouncement = true;
+    }
 });
