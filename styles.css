@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.title {
+    font-size: 32px;
+    text-decoration: underline;
+}
+
+.elections {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    button {
+        font-size: 24px;
+        padding: 8px 16px;
+        border-radius: 12px;
+        width: 128px;
+    }
+}
+
+.score-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    .player, .computer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        border: 2px solid black;
+        border-radius: 24px;
+        min-width: 128px;
+        min-height: 128px;
+    }
+}
+
